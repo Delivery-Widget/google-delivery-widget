@@ -1,0 +1,27 @@
+{
+  "name": "google-delivery-widget",
+  "version": "1.0.0",
+  "description": "2021학년도 동기계절 카카오 현장실습[팀 프로젝트] 깃 레퍼지토리입니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Delivery-Widget/google-delivery-widget.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Delivery-Widget/google-delivery-widget/issues"
+  },
+  "homepage": "https://github.com/Delivery-Widget/google-delivery-widget#readme",
+  "devDependencies": {
+    "husky": "^4.3.8"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
