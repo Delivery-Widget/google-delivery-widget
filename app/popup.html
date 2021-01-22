@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html style="min-height: auto">
+  <head>
+    <meta charset="utf-8" />
+    <title>chrome-extension-template</title>
+  </head>
+  <body style="width: 350px; height: 200px">
+    <label for="company">택배사 선택:</label>
+    <select name="companies" id="company"></select>
+    <input type="number" id="postNumber" value="0" placeholder="운송장번호" />
+    <button id="addParcel">+</button>
+    <div id="list"></div>
+    <p id="alert"></p>
+    <button id="refresh">새로고침</button>
+    <script src="popup.js"></script>
+  </body>
+</html>
