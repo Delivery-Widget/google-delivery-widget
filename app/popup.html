@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +10,13 @@
     <div id="title"><h1>Delivery Widget</h1></div>
     <button type="button" id ="setting_btn" onclick="location.href='setting.html'"><img src="settings.png" width="30px" height="30px"></button>
 
-    <div class="container">
-        <button type="button" id="register_btn">배송물품 등록</button>
-        <button type="button" id="mygoods_btn">배송조회1</button>
-    </div>
+    <label for="company">택배사 선택:</label>
+    <select name="companies" id="company"></select>
+    <input type="number" id="postNumber" value="0" placeholder="운송장번호" />
+    <button id="addParcel"><img src="plus.png" width="15px" height="15px"></button>
+    <div id="list"></div>
+    <p id="alert"></p>
+    <button id="refresh">새로고침</button>
+    <script src="popup.js"></script>
 </body>
 </html>

@@ -7,8 +7,7 @@ body {
     padding: 0.5rem;
     box-sizing: border-box;
     border: 3px solid skyblue;
-    border-radius: 10%;
-    text-align: center;
+    border-radius: 10px;
 }
 
 #title {

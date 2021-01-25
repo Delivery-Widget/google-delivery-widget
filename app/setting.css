@@ -5,7 +5,7 @@ body {
     padding: 0.5rem;
     box-sizing: border-box;
     border: 3px solid skyblue;
-    border-radius: 10%;
+    border-radius: 10px;
     text-align: center;
 }
 
@@ -51,7 +51,7 @@ label {
     border-top-right-radius: 25px;
     border-bottom-right-radius: 25px;
     padding : 0.5rem;
-    margin-left: 80px;
+    margin-left: 85px;
 }
 
 label::before {
@@ -125,8 +125,8 @@ lable.round::before {border-radius: 50%}
     linear-gradient(135deg, gray 50%, transparent 50%),
     radial-gradient(#ddd 70%, transparent 72%);
     background-position:
-    calc(100% - 20px) calc(1em + 2px),
-    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 18px) calc(1em + 2px),
+    calc(100% - 13px) calc(1em + 2px),
     calc(100% - .5em) .5em;
     background-size:
     5px 5px,
@@ -134,3 +134,10 @@ lable.round::before {border-radius: 50%}
     1.5em 1.5em;
     background-repeat: no-repeat;
 }
+
+#ok_btn {
+    width: 60px;
+    height: 30px;
+    position: center;
+    margin-top: 50px;
+} 
