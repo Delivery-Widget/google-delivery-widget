@@ -1,0 +1,44 @@
+/*.배송물품의 개수에 따라 유동적으로 창의 크기가 변경되도록 작성*/
+body {
+    overflow: hidden;
+    width: 350px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border: 3px solid skyblue;
+    border-radius: 10%;
+    text-align: center;
+}
+
+#title {
+    margin-left: 10px;
+    float: left;
+}
+
+#setting_btn {
+    margin: 30px 10px;  
+    background-color: white;
+    border: white;
+}
+
+/*배송물품등록 관련*/
+#register_btn {
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    font-size: 18px;
+    background-color: rgb(207, 239, 252);
+    border: rgb(207, 239, 252);
+}
+
+/*배송조회버튼 관련*/
+#mygoods_btn {
+    width: 300px;
+    height: 50px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    background-color: rgb(207, 239, 252);
+    border: rgb(207, 239, 252);
+}
