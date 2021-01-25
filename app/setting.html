@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Delivery widget-설정</title>
-    <link rel="stylesheet" href="setting.css">
-
-</head>
-<body>
+    <link rel="stylesheet" href="setting.css" />
+  </head>
+  <body>
     <h1>설정</h1>
     <div id="notice_box">
-        <div id="nb_text">알림</div>
-        <input type="checkbox" id="nb_switch">
-        <label for="nb_switch"></label>
+      <div id="nb_text">알림</div>
+      <input type="checkbox" id="nb_switch" />
+      <label for="nb_switch"></label>
     </div>
 
     <div id="checkcycle_box">
-       <div id="cb_text">시간설정</div> 
-       <form>
-           <select id="checkcycle" required>
-               <option value="" disabled selected>사간을 선택하세요</option>
-               <option value="1">10분</option>
-               <option value="2">30분</option>
-               <option value="3">1시간</option>
-               <option value="4">2시간</option>
-               <option value="5">3시간</option>
-               <option value="6">4시간</option>
-               <option value="7">5시간</option>
-               <option value="8">6시간</option>
-            </select>
-       </form>
+      <div id="cb_text">시간설정</div>
+      <form>
+        <select id="checkcycle" required>
+          <option value="" disabled selected>사간을 선택하세요</option>
+          <option value="1">10분</option>
+          <option value="2">30분</option>
+          <option value="3">1시간</option>
+          <option value="4">2시간</option>
+          <option value="5">3시간</option>
+          <option value="6">4시간</option>
+          <option value="7">5시간</option>
+          <option value="8">6시간</option>
+        </select>
+      </form>
     </div>
 
-    <button type="button" id ="ok_btn" onclick="location.href='popup.html'">완료</button>
+    <button type="button" id="ok_btn" onclick="location.href='popup.html'">
+      완료
+    </button>
+  </body>
 
-    
-</body>
-
-<script src="scripts/click.js"></script>
-<script src="scripts/bundle.js"></script>
-
+  <script src="scripts/click.js"></script>
+  <script src="scripts/bundle.js"></script>
+  <script src="setting.js"></script>
 </html>
