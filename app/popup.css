@@ -18,6 +18,69 @@
     cursor:pointer;
     overflow: hidden;
     outline:none;
+    padding-right: 0;
+    padding-left: 2px;
 }
 
+#header {
+    height:100px;
+    position: relative;
+}
+
+#title {
+    float: left;
+    color: aliceblue;
+    position: absolute;
+    font-size:x-small;
+    left: 0;
+    bottom: 0;
+    margin-left: 1.5rem;
+}
+
+#header_btns button{
+    background-color: white;
+    border: white;
+}
+
+#setting_btn {
+    margin-right: 0.8rem;
+    margin-top: 0.75rem;
+    float: right;
+    padding: 0;
+}
+
+#refresh_btn {
+    float: right;
+    margin-top: 0.8rem;
+}
+
+#icon {
+    background-color: transparent;
+}
+
+#contents {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    color: aliceblue;
+    font-size: small;
+}
+
+#contents-line {
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+#contents-line button {
+    vertical-align: middle;
+}
+
+#company {
+    width: 80px;
+    padding-left: 2px;
+}
+#postNumber {
+    padding-left: 2px;
+    width: 110px;
+}
 

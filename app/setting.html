@@ -7,7 +7,31 @@
     <link rel="stylesheet" href="setting.css" />
   </head>
   <body>
-    <h1>설정</h1>
+      <div id="container">
+        <div id="title"><h1>설정</h1></div>
+        <div class="noti-box">
+          <div class="box-text">알림</div>
+          <input type="checkbox" id="nb_switch" />
+          <label for="nb_switch"></label>
+        </div>
+        <div class="noti-box" style="width: 210px;">
+          <div class="box-text">시간 설정</div>
+          <form>
+            <select id="checkcycle" required>
+              <option value="disabled selected">시간 선택</option>
+              <option value="10">10분</option>
+              <option value="30">30분</option>
+              <option value="60">1시간</option>
+              <option value="120">2시간</option>
+              <option value="180">3시간</option>
+              <option value="240">4시간</option>
+            </select>
+          </form>
+        </div>
+        <button type="button" id="ok_btn">완료</button>
+      </div>
+      
+    <!-- <h1>설정</h1>
     <div id="notice_box">
       <div id="nb_text">알림</div>
       <input type="checkbox" id="nb_switch" />
@@ -25,13 +49,11 @@
           <option value="120">2시간</option>
           <option value="180">3시간</option>
           <option value="240">4시간</option>
-          <option value="300">5시간</option>
-          <option value="360">6시간</option>
         </select>
       </form>
     </div>
 
-    <button type="button" id="ok_btn">완료</button>
+    <button type="button" id="ok_btn">완료</button> -->
   </body>
 
   <script src="scripts/click.js"></script>

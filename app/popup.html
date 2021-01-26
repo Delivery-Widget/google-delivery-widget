@@ -5,61 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="popup.css">
     <title>Delivery widget</title>
-    <style>    
-        #header {
-            height:100px;
-            position: relative;
-        }
-
-        #title {
-            float: left;
-            color: aliceblue;
-            position: absolute;
-            font-size:x-small;
-            left: 0;
-            bottom: 0;
-            margin-left: 1.5rem;
-        }
-
-        #header_btns button{
-            background-color: white;
-            border: white;
-        }
-
-        #setting_btn {
-            margin-right: 0.8rem;
-            margin-top: 0.72rem;
-            float: right;
-            padding: 0;
-        }
-
-        #refresh_btn {
-            float: right;
-            margin-top: 0.8rem;
-        }
-
-        #icon {
-            background-color: transparent;
-        }
-
-        #contents {
-            display: table;
-            margin-left: auto;
-            margin-right: auto;
-            color: aliceblue;
-            font-size: small;
-        }
-
-        #contents-line {
-            height: 20px;
-            margin-bottom: 10px;
-        }
-
-        #contents-line button {
-            vertical-align: middle;
-        }
-
-    </style>
 </head>
 <body>
     <div id="container">
@@ -70,7 +15,7 @@
                     <img id="icon" src="image/setting.png" width="34px" height="34px">
                 </button>
                 <button type="button" id ="refresh_btn"onclick="location.reload()" style="background-color: transparent;">
-                    <img id="icon" src="image/refresh_btn.png" width="29px" height="29px">
+                    <img id="icon" src="image/refresh.png" width="29px" height="29px">
                 </button>
             </div>
         </div>
@@ -78,7 +23,7 @@
             <div id="contents-line">
                 <label for="company">택배사 선택</label>
                 <select name="companies" id="company"></select>
-                <input type="number" id="postNumber" value=" " placeholder="운송장번호를 입력하세요." required>
+                <input type="number" id="postNumber" value=" " placeholder="운송장번호 입력" required>
                 <button id="addParcel"><img src="image/add-icon.png" width="22px" height="22px"></button>
             </div>
             <div id="list"></div>
