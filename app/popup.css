@@ -1,29 +1,23 @@
-/*.배송물품의 개수에 따라 유동적으로 창의 크기가 변경되도록 작성*/
-body {
-    overflow: hidden;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+#container {
+    font-family: 'Noto Sans KR', sans-serif;
+    overflow: auto;
     width: 350px;
     height: auto;
     margin: 0 auto;
-    padding: 0.5rem;
     box-sizing: border-box;
-    border: 3px solid skyblue;
     border-radius: 10px;
+    background-image: url("image/background.png");
+    padding-bottom: 1rem;
 }
 
-#title {
-    margin-left: 10px;
-    float: left;
-}
-
-#setting_btn {
-    margin: 30px 10px;  
-    background-color: white;
-    border: white;
-}
 #addParcel {
-    margin-top: 5px;
-    background-color: rgba(255, 255, 255, 0.664);
-    border-color: rgba(255, 255, 255, 0.918);
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
 }
 
 
