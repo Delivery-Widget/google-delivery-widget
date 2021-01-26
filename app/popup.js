@@ -1,13 +1,13 @@
 const alertElement = document.querySelector("#alert");
 const intervalToggleBtn = document.querySelector("#intervalToggle");
-const refreshBtn = document.querySelector("#refresh");
+const refreshBtn = document.querySelector("#refresh_btn");
 const companyList = document.querySelector("#company");
 const settingBtn = document.querySelector("#setting_btn");
 
-//설정값 초기화 코드 작성 필요
+//설정값 초기화 코드 작성
 if (!localStorage.getItem("initialrized")) {
   localStorage.setItem("initialrized", "yes");
-  localStorage.setItem("isIntervaling", "T"); //초기 설정은 인터벌 켜짐
+  localStorage.setItem("alarmOn", "T"); //초기 설정은 알람 켜짐
   localStorage.setItem("cycleInterval", "10"); //초기설정은 10분마다
 }
 
@@ -71,6 +71,24 @@ function addParcelList(parcel, key) {
   btn.innerHTML = "delete";
   btn.addEventListener("click", deleteParcel);
   document.querySelector("#list").appendChild(div).appendChild(btn);
+  const detailDiv = document.createElement("div");
+  div.showDetail = true;
+  div.appendChild(detailDiv);
+  for (let i = lastIndex - 1; i >= 0; i--) {
+    const detailElement = document.createElement("div");
+    detailElement.textContent = `${parcel.companyName} ${parcel.postNumber} [${parcel.progresses[i].location.name}] [${parcel.progresses[i].status.text}]`;
+    detailDiv.style.display = "none";
+    detailDiv.appendChild(detailElement);
+  }
+  div.addEventListener("click", function () {
+    if (!div.showDetail) {
+      detailDiv.style.display = "none";
+      div.showDetail = true;
+    } else {
+      detailDiv.style.display = "block";
+      div.showDetail = false;
+    }
+  });
 }
 
 function deleteParcel(e) {
@@ -80,11 +98,11 @@ function deleteParcel(e) {
   });
   updateFromStorge();
 }
-// refreshBtn.addEventListener("click", function () {
-//   chrome.runtime.sendMessage({
-//     type: "reflashParcel",
-//   });
-// });
+refreshBtn.addEventListener("click", function () {
+  chrome.runtime.sendMessage({
+    type: "reflashParcel",
+  });
+});
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.type === "updateParcel") {

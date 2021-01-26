@@ -2,14 +2,27 @@
 //택배정보 관련 외(설정같은거) 정보 저장은 localStorage로 한다
 
 console.log("thisisback" + findCurrentTime());
+//설정값 초기화 코드 작성
+if (!localStorage.getItem("initialrized")) {
+  localStorage.setItem("initialrized", "yes");
+  localStorage.setItem("alarmOn", "T"); //초기 설정은 알람 켜짐
+  localStorage.setItem("cycleInterval", "10"); //초기설정은 10분마다
+}
 
 const base_url = "https://apis.tracker.delivery/carriers/";
 
+let intervalingId;
+let sec = Number(localStorage.getItem("cycleInterval"));
+
+//앱 시작하면 돌기 시작
+setIntervaling(sec);
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  //if 인터벌 정지 메세지 받았다면?
-
-  //if 인터벌 재개 메세지 받았다면?
-
+  //if 루틴시간 설정이 바뀌는 메세지를 받으면? 변경한 시간으로 인터벌 셋팅
+  if (request.type === "changeCycleSetting") {
+    const sec = Number(localStorage.getItem("cycleInterval"));
+    setIntervaling(sec);
+  }
   //if새로운 parcel추가 메세지를 받았다면?
   //존재하는 운송장인지 확인, 존재하면 스토리지 저장 후 checkParcel
   if (request.type === "addParcel") {
@@ -29,7 +42,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
               companyid: request.companyid,
               companyName: request.companyName,
               postNumber: request.postNumber,
-              progresses: res.progresses,
+              progresses: res.progresses, //test: []
             },
           },
           function () {
@@ -67,14 +80,7 @@ function checkParcels() {
         .then((res) => res.json())
         .then((res) => {
           const latestProgresses = res.progresses;
-          if (!latestProgresses) {
-            //존재하지 않는 운송장일시
-            chrome.storage.local.remove([currentKey], function () {
-              chrome.runtime.sendMessage({
-                type: "alertNotExist",
-              });
-            });
-          } else if (
+          if (
             checkingParcel.progresses.length < latestProgresses.length //들고온 진행상태 리스트의 길이가 더 크면 상태 변화됫다는 것
           ) {
             let progressesUpdated = {
@@ -96,14 +102,26 @@ function checkParcels() {
                 });
               } else {
                 //닫힌 상태면 아이콘을 변경하여 사용자에게 알려라.
-                chrome.browserAction.setIcon({ path: "notice_icon_small.png" });
+                if (localStorage.setItem("alarmOn") === "T")
+                  chrome.browserAction.setIcon({
+                    path: "notice_icon_small.png",
+                  });
               }
             });
           }
-        })
-        .catch(() => {});
+        });
+      //.catch(() => {});
     }
   });
+}
+
+function setIntervaling(sec) {
+  clearInterval(intervalingId); //우선 동작중인 인터벌 종료시킴
+  if (sec === 777) return; //777은 인터벌 꺼진 상태라 바로 리턴
+  intervalingId = setInterval(function () {
+    console.log("루틴돌음");
+    checkParcels();
+  }, sec * 1000);
 }
 
 function findCurrentTime() {
@@ -117,11 +135,11 @@ function findCurrentTime() {
   let seconds = today.getSeconds(); // 초
   return (
     year +
-    "年" +
+    "년" +
     month +
-    "月" +
+    "월" +
     date +
-    "日" +
+    "일" +
     hours +
     ":" +
     minutes +

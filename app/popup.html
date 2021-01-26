@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="popup.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
     <title>Delivery widget</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="container">
-        <div id="header">
-            <div id="title"><h1>배송조회 위젯</h1></div>
-            <div id="header_btns">
-                <button type="button" id ="setting_btn"onclick="location.href='setting.html'" style="background-color: transparent;">
-                    <img id="icon" src="image/setting.png" width="34px" height="34px">
-                </button>
-                <button type="button" id ="refresh_btn"onclick="location.reload()" style="background-color: transparent;">
-                    <img id="icon" src="image/refresh.png" width="29px" height="29px">
-                </button>
-            </div>
+      <div id="header">
+        <div id="title"><h1>배송조회 위젯</h1></div>
+        <div id="header_btns">
+          <button
+            type="button"
+            id="setting_btn"
+            style="background-color: transparent"
+          >
+            <img id="icon" src="image/setting.png" width="34px" height="34px" />
+          </button>
+          <button
+            type="button"
+            id="refresh_btn"
+            style="background-color: transparent"
+          >
+            <img id="icon" src="image/refresh.png" width="29px" height="29px" />
+          </button>
         </div>
-        <div id="contents">
-            <div id="contents-line">
-                <label for="company">택배사 선택</label>
-                <select name="companies" id="company"></select>
-                <input type="number" id="postNumber" value=" " placeholder="운송장번호 입력" required>
-                <button id="addParcel"><img src="image/add-icon.png" width="22px" height="22px"></button>
-            </div>
-            <div id="list"></div>
-            <p id="alert"></p>
+      </div>
+      <div id="contents">
+        <div id="contents-line">
+          <label for="company">택배사 선택</label>
+          <select name="companies" id="company"></select>
+          <input
+            type="number"
+            id="postNumber"
+            value=""
+            placeholder="운송장번호 입력"
+            required
+          />
+          <button id="addParcel">
+            <img src="image/add-icon.png" width="22px" height="22px" />
+          </button>
         </div>
+        <div id="list"></div>
+        <p id="alert"></p>
+      </div>
     </div>
     <script src="popup.js"></script>
-</body>
+  </body>
 </html>
