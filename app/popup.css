@@ -20,24 +20,16 @@ body {
     background-color: white;
     border: white;
 }
-
-/*배송물품등록 관련*/
-#register_btn {
-    width: 300px;
-    height: 50px;
-    text-align: center;
-    font-size: 18px;
-    background-color: rgb(207, 239, 252);
-    border: rgb(207, 239, 252);
+#addParcel {
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.664);
+    border-color: rgba(255, 255, 255, 0.918);
+}
+#refresh {
+    width: 100px;
+    height: 25px;
+    margin-left: 200px;
+    background-color:rgba(255, 255, 255, 0.664); 
+    border-color: rgba(255, 255, 255, 0.918);
 }
 
-/*배송조회버튼 관련*/
-#mygoods_btn {
-    width: 300px;
-    height: 50px;
-    margin-top: 10px;
-    text-align: center;
-    font-size: 18px;
-    background-color: rgb(207, 239, 252);
-    border: rgb(207, 239, 252);
-}

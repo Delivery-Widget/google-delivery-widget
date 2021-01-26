@@ -9,10 +9,9 @@
 <body>
     <div id="title"><h1>Delivery Widget</h1></div>
     <button type="button" id ="setting_btn" onclick="location.href='setting.html'"><img src="settings.png" width="30px" height="30px"></button>
-
-    <label for="company">택배사 선택:</label>
+    <label for="company">택배사 선택</label>
     <select name="companies" id="company"></select>
-    <input type="number" id="postNumber" value="0" placeholder="운송장번호" />
+    <input type="number" id="postNumber" value=" " placeholder="운송장번호를 입력하세요." required>
     <button id="addParcel"><img src="plus.png" width="15px" height="15px"></button>
     <div id="list"></div>
     <p id="alert"></p>
