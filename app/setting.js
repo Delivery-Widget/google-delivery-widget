@@ -6,6 +6,8 @@ const okBtn = document.querySelector("#ok_btn");
 const nbBtn = document.querySelector("#nb_switch");
 const cycleSelector = document.querySelector("#checkcycle");
 
+cycleSelector.value = localStorage.getItem("cycleInterval");
+nbBtn.checked = localStorage.getItem("isIntervaling") === "T" ? true : false;
 okBtn.addEventListener("click", function () {
   location.href = "popup.html";
 });

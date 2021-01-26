@@ -96,7 +96,7 @@ function checkParcels() {
                 });
               } else {
                 //닫힌 상태면 아이콘을 변경하여 사용자에게 알려라.
-                chrome.browserAction.setIcon({ path: "icon_alert.png" });
+                chrome.browserAction.setIcon({ path: "notice_icon_small.png" });
               }
             });
           }

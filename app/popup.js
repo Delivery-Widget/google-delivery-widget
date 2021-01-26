@@ -2,25 +2,36 @@ const alertElement = document.querySelector("#alert");
 const intervalToggleBtn = document.querySelector("#intervalToggle");
 const refreshBtn = document.querySelector("#refresh");
 const companyList = document.querySelector("#company");
+const settingBtn = document.querySelector("#setting_btn");
 
-chrome.storage.local.remove(["de.dhl12321344"], function () {});
-// // Fire scripts after page has loaded
-document.addEventListener("DOMContentLoaded", function () {
-  //스토리지 기반으로 목록을 불러온다.
-  updateFromStorge();
-  //api를 이용해 배송사목록을 불러온다
-  fetch("https://apis.tracker.delivery/carriers")
-    .then((res) => res.json())
-    .then((companies) => {
-      companies.forEach((company) => {
-        const option = document.createElement("option");
-        option.value = company.id + "," + company.name;
-        option.innerText = company.name;
-        companyList.appendChild(option);
-      });
+//설정값 초기화 코드 작성 필요
+if (!localStorage.getItem("initialrized")) {
+  localStorage.setItem("initialrized", "yes");
+  localStorage.setItem("isIntervaling", "T"); //초기 설정은 인터벌 켜짐
+  localStorage.setItem("cycleInterval", "10"); //초기설정은 10분마다
+}
+
+//chrome.storage.local.remove(["de.dhl12321344"], function () {});
+
+//스토리지 기반으로 목록을 불러온다.
+updateFromStorge();
+//api를 이용해 배송사목록을 불러온다
+fetch("https://apis.tracker.delivery/carriers")
+  .then((res) => res.json())
+  .then((companies) => {
+    companies.forEach((company) => {
+      const option = document.createElement("option");
+      option.value = company.id + "," + company.name;
+      option.innerText = company.name;
+      companyList.appendChild(option);
     });
-  chrome.browserAction.setIcon({ path: "icon_default.png" });
-  alertElement.innerText = null; //알림창은 창이 열릴때마다 초기화
+  });
+chrome.browserAction.setIcon({ path: "icon_small.png" });
+alertElement.innerText = null; //알림창은 창이 열릴때마다 초기화
+
+//setting 버튼 클릭
+settingBtn.addEventListener("click", function () {
+  location.href = "setting.html";
 });
 
 //택배 추가 버튼 클릭
@@ -69,11 +80,11 @@ function deleteParcel(e) {
   });
   updateFromStorge();
 }
-refreshBtn.addEventListener("click", function () {
-  chrome.runtime.sendMessage({
-    type: "reflashParcel",
-  });
-});
+// refreshBtn.addEventListener("click", function () {
+//   chrome.runtime.sendMessage({
+//     type: "reflashParcel",
+//   });
+// });
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.type === "updateParcel") {
