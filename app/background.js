@@ -92,6 +92,17 @@ function checkParcels() {
               },
             };
             //새로운 array 저장
+            chrome.notifications.clear(checkingParcel.companyid, function() {
+              // 기존의 알림을 제거
+              chrome.notifications.create(checkingParcel.companyid,{
+                "type": "basic",      
+                "iconUrl": "notice_icon.png",
+                "title": "배송조회에 변경이 있습니다.",
+                "message": "운송번호: "+checkingParcel.postNumber
+              }, function() {});
+              // 알림 추가 메소드
+            })
+            // 알림 테스트 설정
             chrome.storage.local.set(progressesUpdated, function () {
               console.log("!new Info!");
               //ui update or icon change
@@ -121,7 +132,7 @@ function setIntervaling(sec) {
   intervalingId = setInterval(function () {
     console.log("루틴돌음");
     checkParcels();
-  }, sec * 1000);
+  }, sec * 10);
 }
 
 function findCurrentTime() {
